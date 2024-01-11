@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "index.ts",
+  "main": "./dist/index.cjs",
   "scripts": {
     "build": "rm -rf dist/ && tsup ./index.ts --dts --no-splitting"
   },
