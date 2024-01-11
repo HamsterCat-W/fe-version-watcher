@@ -1,13 +1,18 @@
 {
-  "name": "components",
+  "name": "@lymtic/version-watcher-components",
   "version": "1.0.0",
   "type": "module",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node index.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@lymtic/version-watcher-utils": "workspace:^1.0.0"
+  },
+  "devDependencies": {}
 }

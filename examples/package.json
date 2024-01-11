@@ -1,0 +1,17 @@
+{
+  "name": "examples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@lymtic/version-watcher-components": "workspace:^1.0.0",
+    "@lymtic/version-watcher-utils": "workspace:^1.0.0"
+  }
+}

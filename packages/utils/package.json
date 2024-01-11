@@ -1,14 +1,16 @@
 {
-  "name": "utils",
+  "name": "@lymtic/version-watcher-utils",
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf dist/ && tsup ./index.ts --dts --no-splitting"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {}
+  "devDependencies": {
+    "tsup": "^8.0.1"
+  }
 }
