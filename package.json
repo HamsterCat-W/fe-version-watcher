@@ -1,0 +1,29 @@
+{
+  "name": "fe-version-watcher",
+  "version": "1.0.0",
+  "description": "发布新版本时，在页面上给用户一个提示，引导用户刷新页面",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HamsterCat-W/fe-version-watcher.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HamsterCat-W/fe-version-watcher/issues"
+  },
+  "homepage": "https://github.com/HamsterCat-W/fe-version-watcher#readme",
+  "dependencies": {
+    "@vitejs/plugin-vue": "^5.0.3",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11",
+    "vue": "^3.3.11",
+    "vue-tsc": "^1.8.27"
+  }
+}
