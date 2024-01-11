@@ -1,9 +1,9 @@
 <template>
-  <div id="infoeyes-online-version-modal" class="relative" v-if="visible">
+  <div id="infoeyes-online-version-modal" v-if="visible">
     <div class="notification-container">
       <div class="notification-header">
         <img src="../assets/icons/info.svg" height="20" class="notification-logo" />
-        <span class="notification-desc">检测到页面内容有更新，是否刷新页面加载最新版本？</span>
+        <span class="notification-desc">{{ props.desc }}</span>
       </div>
       <img src="../assets/icons/close.svg" height="10" class="notification-close" @click="cancel" />
       <div class="notification-footer">
@@ -15,13 +15,29 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, onMounted } from 'vue'
+import { ref, watch, onMounted, defineProps } from 'vue'
 import { useRoute } from 'vue-router'
 import dayjs from 'dayjs'
 import useLocalStorage from '../hook/useLocalStorage'
 
+type expirationType = '1d' | '30min'
+
+interface PropsType {
+  modelDomId?: string
+  desc?: string
+  expiration?: expirationType
+  showModal?: boolean
+}
+
+const props = withDefaults(defineProps<PropsType>(), {
+  modelDomId: 'infoeyes-online-version-modal',
+  desc: '检测到页面内容有更新，是否刷新页面加载最新版本?',
+  expiration: '1d',
+  showModal: true
+})
+
 // 是否显示弹窗
-const visible = ref<boolean>(true)
+const visible = ref<boolean>(false)
 
 const route = useRoute()
 
@@ -57,6 +73,7 @@ const formatterVersion = (version?: string) => (version ? Number(version) : unde
 
 // 初始化弹窗
 const initMadal = () => {
+  if (!props.showModal) return
   visible.value = true
 }
 
@@ -73,13 +90,19 @@ const confirm = () => {
 const callback = (latestVersion: number | undefined, currentVersion: number | undefined, trigger: TriggerType) => {
   try {
     if (latestVersion && currentVersion && latestVersion > currentVersion) {
-      if (!getVersionFromDom('infoeyes-online-version-modal')) {
+      if (!getVersionFromDom(props.modelDomId)) {
         console.log('初始化弹窗')
         initMadal()
       }
 
-      //   设置缓存时间一天 一天之内只会提示一次
-      setInfoExpireTime(dayjs().endOf('d').format('x'))
+      //   设置缓存时间
+      if (props.expiration === '1d') {
+        setInfoExpireTime(dayjs().endOf('d').format('x'))
+      }
+
+      if (props.expiration === '30min') {
+        setInfoExpireTime(new Date().getTime() + 1000 * 30 * 60)
+      }
     }
   } catch (error) {
     console.log(error)
@@ -127,6 +150,9 @@ onMounted(() => {
 </script>
 
 <style scoped lang="less">
+#infoeyes-online-version-modal {
+  position: relative;
+}
 .notification-container {
   padding: 20px;
   width: 300px;
