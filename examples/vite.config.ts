@@ -3,5 +3,10 @@ import vue from '@vitejs/plugin-vue'
 import { publishVersion } from '@lymtic/version-watcher-utils/dist/index.cjs'
 
 export default defineConfig({
-  plugins: [vue(), publishVersion({})]
+  plugins: [
+    vue(),
+    publishVersion({
+      domId: 'infoeyes-online-version-demo'
+    })
+  ]
 })

@@ -2,8 +2,19 @@
 import fs from 'fs'
 import path from 'path'
 import { Plugin } from 'vite'
-const publishVersion = (args: any = {}): Plugin => {
+import * as cheerio from 'cheerio'
+
+interface Options {
+  domId: string
+}
+
+const publishVersion = (
+  args: Options = {
+    domId: 'infoeyes-online-version'
+  }
+): Plugin => {
   console.log('🚀 ~ publishVersion ~ args:', args)
+  const { domId } = args
   return {
     name: 'vite-plugin-publish-version',
     apply: 'build',
@@ -18,9 +29,10 @@ const publishVersion = (args: any = {}): Plugin => {
         }
       })
 
-      const reg = /\s*<div\s+id="infoeyes-online-version"\s+style="display:\s*none">\s*<\/div>\s*/
+      const $ = cheerio.load(html)
+      $('body').append(`<div id="${domId}" style="display: none">${version}</div>`)
 
-      return html.replace(reg, `<div id="infoeyes-online-version" style="display: none">${version}</div>`)
+      return $.html()
     }
   }
 }
