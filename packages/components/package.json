@@ -3,16 +3,14 @@
   "version": "1.0.0",
   "type": "module",
   "description": "",
-  "main": "index.ts",
+  "main": "./lib/index.cjs",
+  "module": "./dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node index.js"
+    "build": "vite build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@lymtic/version-watcher-utils": "workspace:^1.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {}
 }
