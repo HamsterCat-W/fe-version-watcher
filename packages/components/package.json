@@ -1,6 +1,6 @@
 {
   "name": "@lymtic/version-watcher",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "exports": {
     ".": {
@@ -34,7 +34,7 @@
   ],
   "types": "./dist/index.d.ts",
   "author": "lymticans",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {}
 }
