@@ -7,11 +7,11 @@ export default defineConfig({
     vue(),
     dts({
       rollupTypes: true
-    }),
-    dts({
-      outDir: 'lib',
-      rollupTypes: true
     })
+    // dts({
+    //   outDir: 'lib',
+    //   rollupTypes: true
+    // })
   ],
   build: {
     target: 'modules',
@@ -19,35 +19,14 @@ export default defineConfig({
     //   压缩
     minify: false,
     //css分离
-    cssCodeSplit: true,
+    // cssCodeSplit: true,
     rollupOptions: {
       //忽略打包vue文件
       external: ['vue'],
-      input: ['src/index.ts'],
-      output: [
-        {
-          format: 'es',
-          //不用打包成.es.js,这里我们想把它打包成.js
-          entryFileNames: '[name].js',
-          //让打包目录和我们目录对应
-          // preserveModules: true,
-          //配置打包根目录
-          // preserveModulesRoot: 'src',
-          dir: 'dist'
-        },
-        {
-          format: 'cjs',
-          entryFileNames: '[name].cjs',
-          //让打包目录和我们目录对应
-          // preserveModules: true,
-          //配置打包根目录
-          // preserveModulesRoot: 'src',
-          dir: 'lib'
-        }
-      ]
+      input: ['src/index.ts']
     },
     lib: {
-      entry: './src/index.ts',
+      entry: 'src/index.ts',
       formats: ['es', 'cjs']
     }
   }
