@@ -1,17 +1,33 @@
-### 使用
-
 ### 安装
 
 ```bash
-npm i @lymtic/version-watcher-components
+npm i @lymtic/version-watcher
 ```
+
+### 插件引入
+
+在 vite.config.ts 引入
+
+```ts
+import { publishVersion } from '@lymtic/version-watcher/vite'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [
+    publishVersion({
+      domId: 'lymtic-version-watcher' // 可选参数，可以不传
+    })
+  ]
+})
+```
+
+插件需要配合组件使用，在传递 domId 时，需要保持一致
 
 ### 样式引入
 
 ```ts
 // main.ts
-
-import '@lymtic/version-watcher-components/dist/index.css'
+import '@lymtic/version-watcher/style.css'
 ```
 
 ### 组件引入
@@ -20,7 +36,7 @@ import '@lymtic/version-watcher-components/dist/index.css'
 
 ```vue
 <script setup lang="ts">
-import { FeVersionWatcher } from '@lymtic/version-watcher-components'
+import { FeVersionWatcher } from '@lymtic/version-watcher'
 </script>
 
 <template>
