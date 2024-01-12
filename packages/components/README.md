@@ -41,7 +41,8 @@ import { FeVersionWatcher } from '@lymtic/version-watcher'
 
 <template>
   <div>
-  <FeVersionWatcher></FeVersionWatcher>
+    <FeVersionWatcher></FeVersionWatcher>
+  </div>
 </template>
 ```
 
