@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "index.ts",
+  "main": "./dist/index.cjs",
   "scripts": {
     "build": "rm -rf dist/ && tsup ./index.ts --dts --no-splitting"
   },
-  "keywords": [],
-  "author": "",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "vite 插件"
+  ],
+  "author": "lymticans",
   "license": "ISC",
   "devDependencies": {
     "tsup": "^8.0.1"

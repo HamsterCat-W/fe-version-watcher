@@ -2,6 +2,8 @@ import { createApp } from 'vue'
 
 import { createRouter, createWebHistory } from 'vue-router'
 
+import '@lymtic/version-watcher-components/dist/index.css'
+
 const routes = [
   {
     path: '/',
