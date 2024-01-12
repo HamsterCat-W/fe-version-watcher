@@ -1,9 +1,10 @@
 {
   "name": "@lymtic/version-watcher",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/version-watcher.mjs",
       "require": "./dist/version-watcher.js"
     },
