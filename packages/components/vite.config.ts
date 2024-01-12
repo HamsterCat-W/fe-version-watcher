@@ -1,17 +1,17 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-// import dts from 'vite-plugin-dts'
+import dts from 'vite-plugin-dts'
 
 export default defineConfig({
   plugins: [
-    vue()
-    // dts({
-    //   tsconfigPath: '../../tsconfig.json'
-    // }),
-    // dts({
-    //   outDir: 'lib',
-    //   tsconfigPath: '../../tsconfig.json'
-    // })
+    vue(),
+    dts({
+      rollupTypes: true
+    }),
+    dts({
+      outDir: 'lib',
+      rollupTypes: true
+    })
   ],
   build: {
     target: 'modules',
@@ -47,7 +47,7 @@ export default defineConfig({
       ]
     },
     lib: {
-      entry: './index.ts',
+      entry: './src/index.ts',
       formats: ['es', 'cjs']
     }
   }

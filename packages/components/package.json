@@ -16,6 +16,7 @@
     "提示组件库",
     "vue3"
   ],
+  "types": "./dist/index.d.ts",
   "author": "lymticans",
   "license": "ISC",
   "dependencies": {},
