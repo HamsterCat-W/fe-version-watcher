@@ -1,6 +1,6 @@
 {
   "name": "@lymtic/version-watcher-components",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "type": "module",
   "description": "",
   "main": "./lib/index.cjs",
@@ -16,6 +16,7 @@
     "提示组件库",
     "vue3"
   ],
+  "types": "./dist/index.d.ts",
   "author": "lymticans",
   "license": "ISC",
   "dependencies": {},

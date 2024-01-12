@@ -21,7 +21,7 @@ const publishVersion = (
     // enforce: 'pre',
     transformIndexHtml: (html: string) => {
       // console.log('🚀 ~ publishVersion ~ html:', html)
-      const versionJsonPath = path.resolve(__dirname, '../dist/version.json')
+      const versionJsonPath = path.resolve('dist/version.json')
       const version = new Date().getTime()
       fs.writeFile(versionJsonPath, JSON.stringify({ version }), (err) => {
         if (err) {
