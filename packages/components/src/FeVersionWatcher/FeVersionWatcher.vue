@@ -27,17 +27,19 @@ interface PropsType {
   desc?: string
   expiration?: expirationType
   showModal?: boolean
+  domId?: string
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
   modelDomId: 'infoeyes-online-version-modal',
   desc: '检测到页面内容有更新，是否刷新页面加载最新版本?',
   expiration: '1d',
-  showModal: true
+  showModal: true,
+  domId: 'infoeyes-online-version'
 })
 
 // 是否显示弹窗
-const visible = ref<boolean>(false)
+const visible = ref<boolean>(true)
 
 const route = useRoute()
 
@@ -95,6 +97,11 @@ const callback = (latestVersion: number | undefined, currentVersion: number | un
         initMadal()
       }
 
+      // 如果不显示弹窗则直接刷新
+      if (!props.showModal) {
+        window.location.reload()
+      }
+
       //   设置缓存时间
       if (props.expiration === '1d') {
         setInfoExpireTime(dayjs().endOf('d').format('x'))
@@ -114,7 +121,7 @@ const triggerFunc = async (trigger: TriggerType) => {
   try {
     if (document.visibilityState === 'visible') {
       const infoExpireTime = getInfoExpireTime()
-      const currentVersion = formatterVersion(getVersionFromDom('infoeyes-online-version') as string)
+      const currentVersion = formatterVersion(getVersionFromDom(props.domId) as string)
 
       // 不需要每次切换页面都去判断资源
       if (infoExpireTime || 0 > new Date().getTime()) {
@@ -135,7 +142,7 @@ const visibleFn = () => {
 }
 
 watch(
-  () => route.path,
+  () => route?.path,
   (nv, ov) => {
     triggerFunc('router-change')
   },
