@@ -8,8 +8,15 @@
   "scripts": {
     "build": "vite build"
   },
-  "keywords": [],
-  "author": "",
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "keywords": [
+    "提示组件库",
+    "vue3"
+  ],
+  "author": "lymticans",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {}

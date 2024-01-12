@@ -7,8 +7,13 @@
   "scripts": {
     "build": "rm -rf dist/ && tsup ./index.ts --dts --no-splitting"
   },
-  "keywords": [],
-  "author": "",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "vite 插件"
+  ],
+  "author": "lymticans",
   "license": "ISC",
   "devDependencies": {
     "tsup": "^8.0.1"
