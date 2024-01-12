@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 
 import { createRouter, createWebHistory } from 'vue-router'
 
-import '@lymtic/version-watcher-components/dist/index.css'
+import '@lymtic/version-watcher/style.css'
 
 const routes = [
   {

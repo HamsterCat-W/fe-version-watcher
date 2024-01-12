@@ -12,7 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@lymtic/version-watcher-components": "workspace:^1.0.0",
-    "@lymtic/version-watcher-utils": "workspace:^1.0.0"
+    "@lymtic/version-watcher": "workspace:^1.0.1"
   }
 }

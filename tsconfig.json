@@ -23,6 +23,7 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
+    "packages/**/**/*.ts",
     "packages/utils/**/*.ts",
     "packages/components/**/*.ts",
     "packages/components/**/*.vue",

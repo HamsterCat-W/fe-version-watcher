@@ -39,7 +39,7 @@ const props = withDefaults(defineProps<PropsType>(), {
 })
 
 // 是否显示弹窗
-const visible = ref<boolean>(false)
+const visible = ref<boolean>(true)
 
 const route = useRoute()
 
