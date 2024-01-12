@@ -8,5 +8,5 @@ export default defineConfig({
   minify: false,
   outDir: './vite-plugin',
   splitting: false,
-  external: ['cheerio']
+  external: ['cheerio', 'mkdirp', 'vite']
 })
