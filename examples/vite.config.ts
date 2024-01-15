@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [
     vue(),
     publishVersion({
-      domId: 'infoeyes-online-version-demo'
+      domId: 'infoeyes-online-version'
     })
   ]
 })

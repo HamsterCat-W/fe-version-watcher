@@ -38,7 +38,16 @@ importers:
       '@lymtic/version-watcher': link:../packages/components
 
   packages/components:
-    specifiers: {}
+    specifiers:
+      cheerio: 1.0.0-rc.12
+      dayjs: ^1.11.10
+      mkdirp: ^3.0.1
+      vue-router: ^4.2.5
+    dependencies:
+      cheerio: 1.0.0-rc.12
+      dayjs: 1.11.10
+      mkdirp: 3.0.1
+      vue-router: 4.2.5
 
 packages:
 
@@ -2109,6 +2118,14 @@ packages:
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
+
+  /vue-router/4.2.5:
+    resolution: {integrity: sha512-DIUpKcyg4+PTQKfFPX88UWhlagBEBEfJ5A8XDXRJLUnZOvcpMF8o/dnL90vpVkGaPbjvXazV/rC1qBKrZlFugw==}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      '@vue/devtools-api': 6.5.1
+    dev: false
 
   /vue-router/4.2.5_vue@3.4.8:
     resolution: {integrity: sha512-DIUpKcyg4+PTQKfFPX88UWhlagBEBEfJ5A8XDXRJLUnZOvcpMF8o/dnL90vpVkGaPbjvXazV/rC1qBKrZlFugw==}
