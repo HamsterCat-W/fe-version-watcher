@@ -104,7 +104,7 @@ const callback = (latestVersion: number | undefined, currentVersion: number | un
 
       //   设置缓存时间
       if (props.expiration === '1d') {
-        setInfoExpireTime(dayjs().endOf('d').format('x'))
+        setInfoExpireTime(+dayjs().endOf('d'))
       }
 
       if (props.expiration === '30min') {
