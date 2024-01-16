@@ -195,6 +195,7 @@ onMounted(() => {
 .notification-desc {
   line-height: 20px;
   text-align: start;
+  font-size: 14px;
 }
 
 .notification-footer {
