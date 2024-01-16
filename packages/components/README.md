@@ -89,3 +89,9 @@ interface PropsType {
   domId?: string // 页面上存储的版本号元素的id ,需要与 @lymtic/version-watcher-utils 这个库配合使用，也可以都不传递，使用默认值
 }
 ```
+
+#### demo 地址
+
+```bash
+https://github.com/HamsterCat-W/fe-version-watcher-demo
+```
