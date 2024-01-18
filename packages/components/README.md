@@ -86,7 +86,7 @@ interface PropsType {
   desc?: string // 弹窗内容
   expiration?: expirationType // 缓存时间，默认一天只显示一次
   showModal?: boolean //是否显示弹出案，false时直接触发刷新，不显示弹窗
-  domId?: string // 页面上存储的版本号元素的id ,需要与 @lymtic/version-watcher-utils 这个库配合使用，也可以都不传递，使用默认值
+  domId?: string // 页面上存储的版本号元素的id ,需要与 vite 插件传递的参数保持一致，也可以都不传递，使用默认值
 }
 ```
 
