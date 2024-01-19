@@ -39,7 +39,7 @@ const props = withDefaults(defineProps<PropsType>(), {
 })
 
 // 是否显示弹窗
-const visible = ref<boolean>(true)
+const visible = ref<boolean>(false)
 
 const route = useRoute()
 
@@ -104,7 +104,7 @@ const callback = (latestVersion: number | undefined, currentVersion: number | un
 
       //   设置缓存时间
       if (props.expiration === '1d') {
-        setInfoExpireTime(dayjs().endOf('d').format('x'))
+        setInfoExpireTime(+dayjs().endOf('d'))
       }
 
       if (props.expiration === '30min') {
@@ -195,6 +195,7 @@ onMounted(() => {
 .notification-desc {
   line-height: 20px;
   text-align: start;
+  font-size: 14px;
 }
 
 .notification-footer {

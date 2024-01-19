@@ -3,6 +3,7 @@ import fs from 'fs'
 import path from 'path'
 import { Plugin } from 'vite'
 import * as cheerio from 'cheerio'
+import { mkdirp } from 'mkdirp'
 
 interface Options {
   domId: string
@@ -19,8 +20,9 @@ const publishVersion = (
     name: 'vite-plugin-publish-version',
     apply: 'build',
     // enforce: 'pre',
-    transformIndexHtml: (html: string) => {
+    transformIndexHtml: async (html: string) => {
       // console.log('🚀 ~ publishVersion ~ html:', html)
+      await mkdirp('dist')
       const versionJsonPath = path.resolve('dist/version.json')
       const version = new Date().getTime()
       fs.writeFile(versionJsonPath, JSON.stringify({ version }), (err) => {
