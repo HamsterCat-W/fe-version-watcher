@@ -24,8 +24,6 @@
 
 弹窗组件: 主要功能是在屏幕右下角生成弹窗,并在 `localStorage` 生成并存储过期时间：`versionInfoExpireTime`
 
-![弹窗组件](./src/assets/image.png)
-
 #### 安装
 
 ```bash
