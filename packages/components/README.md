@@ -1,6 +1,6 @@
 ### 使用场景
 
-背景: 当一些高频使用的网站发布新版本时，往往不能在短时间内覆盖到平台上 80%及以上的用户，此时，用户无法知晓当前网站是否有更新。
+当一些频繁使用的网站发布新版本时，已经打开网页的用户可能无法即时了解到更新。尤其是对于某些后台应用，用户一旦打开页面，通常在相当长的时间内不会刷新。由于新版本在短时间内难以覆盖到平台上 80%及以上的用户，我们建议引导用户主动进行页面刷新，以确保他们获得最新的用户体验
 
 ### 弹窗触发条件
 
@@ -8,7 +8,7 @@
 
 ### 触发时机
 
-切换路由 （点击导航或者 tab 页切换）
+`document.visibilityState === 'visible'` 或者 路由发生变化
 
 ### 使用
 
@@ -24,7 +24,7 @@
 
 弹窗组件: 主要功能是在屏幕右下角生成弹窗,并在 `localStorage` 生成并存储过期时间：`versionInfoExpireTime`
 
-![弹窗组件](image.png)
+![弹窗组件](./src/assets/image.png)
 
 #### 安装
 
@@ -69,7 +69,13 @@ import { FeVersionWatcher } from '@lymtic/version-watcher'
 
 <template>
   <div>
-    <FeVersionWatcher></FeVersionWatcher>
+    <FeVersionWatcher
+      modelDomId="version-modal"
+      desc="检测到页面内容有更新，是否刷新页面加载最新版本?"
+      expiration="1d"
+      :showModal="true"
+      domId="lymtic-version-watcher"
+    ></FeVersionWatcher>
   </div>
 </template>
 ```
